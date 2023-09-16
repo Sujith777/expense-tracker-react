@@ -37,6 +37,7 @@ const ExpenseForm = (props) => {
     });
     setDisplayForm(false);
   };
+  const currentYear = new Date().getFullYear();
 
   return displayForm ? (
     <form onSubmit={handleSubmit}>
@@ -65,8 +66,8 @@ const ExpenseForm = (props) => {
           <label>Date</label>
           <input
             type="date"
-            min="2019-01-01"
-            max="2022-12-31"
+            min={(currentYear - 5).toString() + "-01-01"}
+            max={currentYear.toString() + "-12-31"}
             name="date"
             value={expense.date}
             onChange={handleChange}
