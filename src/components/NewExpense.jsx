@@ -1,0 +1,20 @@
+import React from "react";
+import ExpenseForm from "./ExpenseForm";
+import "../styles/NewExpense.css";
+
+const NewExpense = (props) => {
+  const handleSaveExpenseData = (inputExpanseData) => {
+    const expenseData = {
+      ...inputExpanseData,
+      id: Math.random().toString(),
+    };
+    props.onAddExpense(expenseData);
+  };
+  return (
+    <div className="new-expense">
+      <ExpenseForm onSaveExpenseData={handleSaveExpenseData} />
+    </div>
+  );
+};
+
+export default NewExpense;
