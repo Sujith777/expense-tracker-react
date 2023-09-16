@@ -6,15 +6,17 @@ const ExpensesFilter = (props) => {
   const handleChange = (event) => {
     props.onFilterChange(event.target.value);
   };
+  const currYear = new Date().getFullYear();
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label>Filter by year</label>
         <select value={props.selectedYear} onChange={handleChange}>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          <option value="2019">2019</option>
+          <option value={currYear}>{currYear}</option>
+          <option value={currYear - 1}>{currYear - 1}</option>
+          <option value={currYear - 2}>{currYear - 2}</option>
+          <option value={currYear - 3}>{currYear - 3}</option>
+          <option value={currYear - 4}>{currYear - 4}</option>
         </select>
       </div>
     </div>
